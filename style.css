@@ -1745,3 +1745,28 @@ nav.scrolled .cta-nav {
         max-width: 100%;
     }
 }
+/* Logo text styling */
+.logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white; /* White on transparent nav */
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+}
+
+nav.scrolled .logo-text {
+    color: var(--dark); /* Dark on scrolled */
+}
+
+/* On mobile, keep the text dark when menu is open (already handled by scrolled class) */
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 1.2rem; /* Slightly smaller on mobile */
+    }
+}
+
+/* Optional: Add a subtle hover effect */
+.logo-text:hover {
+    color: var(--primary-light);
+}
