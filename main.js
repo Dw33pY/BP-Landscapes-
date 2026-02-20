@@ -172,126 +172,26 @@ const modalFeatures = document.getElementById('modalFeatures');
 const modalClose = document.querySelector('.modal-close');
 const modalContact = document.querySelector('.modal-contact');
 
-// Service details data (same as before – includes all services)
+// Generic service details for all new services
 const serviceDetails = {
-    design: {
-        title: 'Landscape Design',
-        description: 'We create custom landscape designs that blend aesthetics with functionality. Our detailed plans include plant selection, hardscaping, and outdoor lighting.',
-        features: ['Custom garden design', '3D visualization', 'Plant selection', 'Outdoor lighting plans']
-    },
-    maintenance: {
-        title: 'Garden Maintenance',
-        description: 'Regular maintenance to keep your garden healthy and beautiful year-round. Our programs include pruning, weeding, mulching, and plant health care.',
-        features: ['Lawn mowing & trimming', 'Fertilization & aeration', 'Weed & pest control', 'Seasonal cleanups']
-    },
-    irrigation: {
-        title: 'Irrigation Systems',
-        description: 'Efficient irrigation solutions including drip systems and smart controllers to conserve water while keeping your landscape lush.',
-        features: ['Drip irrigation installation', 'Sprinkler systems', 'Smart controller setup', 'System maintenance']
-    },
-    lighting: {
-        title: 'Outdoor Lighting',
-        description: 'Enhance your outdoor spaces with custom lighting designs. We install energy-efficient LED systems for safety and ambiance.',
-        features: ['Pathway lighting', 'Accent lighting', 'Security lighting', 'Smart controls']
-    },
-    hardscaping: {
-        title: 'Hardscaping',
-        description: 'Patios, walkways, retaining walls, and more. We use quality materials to create durable and attractive hardscape features.',
-        features: ['Natural stone patios', 'Pavers & walkways', 'Retaining walls', 'Outdoor kitchens']
-    },
-    cleanup: {
-        title: 'Seasonal Clean‑ups',
-        description: 'Prepare your garden for every season with our thorough clean‑up services, including debris removal, pruning, and mulching.',
-        features: ['Leaf removal', 'Pruning & trimming', 'Mulching', 'Bed edging']
-    },
-    pools: {
-        title: 'Swimming Pools',
-        description: 'Custom pool design and installation for relaxation and fun. We create stunning pools that complement your landscape.',
-        features: ['Custom shapes & sizes', 'Infinity edges', 'Pool automation', 'Eco-friendly options']
-    },
-    kitchens: {
-        title: 'Outdoor Kitchens',
-        description: 'Complete outdoor cooking and entertainment areas. From built-in grills to full kitchens with counters and seating.',
-        features: ['Built-in grills', 'Countertops', 'Refrigeration', 'Covered structures']
-    },
-    modpools: {
-        title: 'Mod Pools',
-        description: 'Modern, modular pool designs that fit any space. Quick installation and sleek aesthetics.',
-        features: ['Prefabricated modules', 'Customizable sizes', 'Fast installation', 'Low maintenance']
-    },
-    backyard: {
-        title: 'Backyard Studios',
-        description: 'Custom standalone structures for work, play, or relaxation. Perfect for home offices, gyms, or art studios.',
-        features: ['Insulated and finished', 'Electricity & lighting', 'HVAC ready', 'Permit assistance']
-    },
-    cabanas: {
-        title: 'Cabanas',
-        description: 'Elegant poolside shelters for shade and comfort. Add a touch of luxury to your pool area.',
-        features: ['Custom designs', 'Integrated lighting', 'Weather-resistant materials', 'Optional screens']
-    },
-    courts: {
-        title: 'Courts',
-        description: 'Basketball, tennis, or multi‑use courts for your property. Professionally graded and surfaced.',
-        features: ['Sport‑grade surfacing', 'Fencing & lighting', 'Custom markings', 'Shock‑absorbing options']
-    },
-    frontyard: {
-        title: 'Front Yard',
-        description: 'Complete front yard landscaping to boost curb appeal. Design, planting, and hardscaping.',
-        features: ['Garden design', 'Walkways & edging', 'Planting & mulch', 'Irrigation integration']
-    },
-    heateddriveways: {
-        title: 'Heated Driveways',
-        description: 'Snow‑free driveways with integrated heating systems. No more shoveling!',
-        features: ['Electric or hydronic systems', 'Thermostat control', 'Safe & slip‑free', 'Durable installation']
-    },
-    deck: {
-        title: 'Deck Installation',
-        description: 'Beautiful, durable decks for outdoor living. Choose from wood, composite, or PVC.',
-        features: ['Custom design', 'Built‑in seating', 'Lighting options', 'Railings & stairs']
-    },
-    concrete: {
-        title: 'Decorative Concrete',
-        description: 'Stamped, stained, and polished concrete for patios, walkways, and driveways.',
-        features: ['Wide pattern selection', 'Color customization', 'Sealed finish', 'Low maintenance']
-    },
-    fire: {
-        title: 'Fire Features',
-        description: 'Fire pits, fireplaces, and outdoor heaters for cozy evenings and year‑round enjoyment.',
-        features: ['Gas or wood burning', 'Custom stonework', 'Seating integration', 'Safety features']
-    },
-    water: {
-        title: 'Water Features',
-        description: 'Fountains, ponds, and waterfalls to soothe the senses and enhance your landscape.',
-        features: ['Pondless or pond', 'Recirculating pumps', 'LED lighting', 'Natural stone']
-    },
-    hottubs: {
-        title: 'Hot Tubs',
-        description: 'Relaxing hot tub and spa installations. Perfect for unwinding after a long day.',
-        features: ['Energy‑efficient models', 'LED lighting', 'Water care systems', 'Custom surrounds']
-    },
-    gardens: {
-        title: 'Gardens',
-        description: 'Custom garden design and planting for year‑round beauty. From flower beds to vegetable plots.',
-        features: ['Plant selection', 'Soil preparation', 'Mulching & edging', 'Seasonal color']
-    },
-    urban: {
-        title: 'Urban Spaces',
-        description: 'Innovative landscaping for small urban lots and rooftops. Maximize your outdoor area.',
-        features: ['Vertical gardens', 'Container planting', 'Space‑saving design', 'Rooftop solutions']
-    }
+    // We'll use a function to return generic content for any service key
 };
 
-// Open modal
+// Instead of defining hundreds of entries, we'll generate on the fly
 document.querySelectorAll('.service-learn-more').forEach(btn => {
     btn.addEventListener('click', (e) => {
         const serviceKey = e.currentTarget.getAttribute('data-service');
-        const details = serviceDetails[serviceKey];
-        if (details) {
-            modalTitle.textContent = details.title;
-            modalDescription.textContent = details.description;
-            modalFeatures.innerHTML = details.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('');
-            modal.style.display = 'block';
-        }
+        const serviceName = e.currentTarget.closest('.service-overlay').querySelector('h3').textContent;
+        
+        modalTitle.textContent = serviceName;
+        modalDescription.textContent = `BP Landscapes offers professional ${serviceName.toLowerCase()} services. Our experienced team delivers high-quality workmanship tailored to your needs. Contact us for a free consultation.`;
+        modalFeatures.innerHTML = `
+            <li><i class="fas fa-check-circle"></i> Free consultation</li>
+            <li><i class="fas fa-check-circle"></i> Experienced professionals</li>
+            <li><i class="fas fa-check-circle"></i> Quality materials</li>
+            <li><i class="fas fa-check-circle"></i> Satisfaction guaranteed</li>
+        `;
+        modal.style.display = 'block';
     });
 });
 
@@ -310,31 +210,8 @@ modalContact.addEventListener('click', () => {
     const service = modalTitle.textContent;
     const serviceSelect = document.getElementById('service');
     if (serviceSelect) {
-        const map = {
-            'Landscape Design': 'design',
-            'Garden Maintenance': 'lawn',
-            'Irrigation Systems': 'irrigation',
-            'Outdoor Lighting': 'other',
-            'Hardscaping': 'other',
-            'Seasonal Clean‑ups': 'other',
-            'Swimming Pools': 'other',
-            'Outdoor Kitchens': 'other',
-            'Mod Pools': 'other',
-            'Backyard Studios': 'other',
-            'Cabanas': 'other',
-            'Courts': 'other',
-            'Front Yard': 'other',
-            'Heated Driveways': 'other',
-            'Deck Installation': 'other',
-            'Decorative Concrete': 'other',
-            'Fire Features': 'other',
-            'Water Features': 'other',
-            'Hot Tubs': 'other',
-            'Gardens': 'other',
-            'Urban Spaces': 'other'
-        };
-        const val = map[service] || 'other';
-        serviceSelect.value = val;
+        // Most services will map to 'other', but we can keep it simple
+        serviceSelect.value = 'other';
     }
     modal.style.display = 'none';
 });
