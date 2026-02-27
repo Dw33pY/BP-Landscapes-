@@ -12,6 +12,10 @@ export default async function handler(req, res) {
   const apiKey = process.env.OPENAI_API_KEY; // Set in Vercel environment variables
   if (!apiKey) {
     return res.status(500).json({ error: 'OpenAI API key not configured' });
+
+if (apiKey && !response.ok && data.error?.code === 'insufficient_quota') {
+    return res.status(200).json({ reply: "I'm sorry, our AI assistant is temporarily unavailable. Please contact us directly via phone or WhatsApp." });
+}
   }
   
   try {
