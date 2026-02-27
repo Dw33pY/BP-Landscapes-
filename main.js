@@ -215,3 +215,68 @@ modalContact.addEventListener('click', () => {
     }
     modal.style.display = 'none';
 });
+
+// ---------- AI Chatbot ----------
+const chatButton = document.getElementById('chat-button');
+const chatWindow = document.getElementById('chat-window');
+const chatClose = document.getElementById('chat-close');
+const chatMessages = document.getElementById('chat-messages');
+const chatInput = document.getElementById('chat-input');
+const chatSend = document.getElementById('chat-send');
+
+// Toggle chat window
+chatButton.addEventListener('click', () => {
+    chatWindow.classList.add('active');
+});
+chatClose.addEventListener('click', () => {
+    chatWindow.classList.remove('active');
+});
+
+// Send message
+async function sendMessage() {
+    const message = chatInput.value.trim();
+    if (!message) return;
+    
+    // Display user message
+    const userMsgDiv = document.createElement('div');
+    userMsgDiv.className = 'message user-message';
+    userMsgDiv.textContent = message;
+    chatMessages.appendChild(userMsgDiv);
+    chatInput.value = '';
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    // Show typing indicator (optional)
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'message bot-message';
+    typingDiv.textContent = '...';
+    chatMessages.appendChild(typingDiv);
+    
+    try {
+        // Call backend API
+        const response = await fetch('/api/chat', { // Adjust URL if backend is elsewhere
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message })
+        });
+        const data = await response.json();
+        typingDiv.remove(); // Remove typing indicator
+        
+        // Display bot response
+        const botMsgDiv = document.createElement('div');
+        botMsgDiv.className = 'message bot-message';
+        botMsgDiv.textContent = data.reply || 'Sorry, I could not process that.';
+        chatMessages.appendChild(botMsgDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    } catch (error) {
+        typingDiv.remove();
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'message bot-message';
+        errorDiv.textContent = 'Sorry, I am having trouble connecting. Please try again later.';
+        chatMessages.appendChild(errorDiv);
+    }
+}
+
+chatSend.addEventListener('click', sendMessage);
+chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+});
