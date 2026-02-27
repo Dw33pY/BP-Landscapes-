@@ -149,18 +149,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// ---------- Services VERTICAL Carousel ----------
+// ---------- Services HORIZONTAL Carousel ----------
 const carousel = document.getElementById('servicesCarousel');
-const upBtn = document.querySelector('.up-btn');
-const downBtn = document.querySelector('.down-btn');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
 
-if (carousel && upBtn && downBtn) {
-    const scrollAmount = 400; // Approx card height + gap
-    upBtn.addEventListener('click', () => {
-        carousel.scrollBy({ top: -scrollAmount, behavior: 'smooth' });
+if (carousel && prevBtn && nextBtn) {
+    const scrollAmount = 320; // Approx card width + gap
+    prevBtn.addEventListener('click', () => {
+        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     });
-    downBtn.addEventListener('click', () => {
-        carousel.scrollBy({ top: scrollAmount, behavior: 'smooth' });
+    nextBtn.addEventListener('click', () => {
+        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     });
 }
 
@@ -172,12 +172,7 @@ const modalFeatures = document.getElementById('modalFeatures');
 const modalClose = document.querySelector('.modal-close');
 const modalContact = document.querySelector('.modal-contact');
 
-// Generic service details for all new services
-const serviceDetails = {
-    // We'll use a function to return generic content for any service key
-};
-
-// Instead of defining hundreds of entries, we'll generate on the fly
+// Generic service details (customise as needed)
 document.querySelectorAll('.service-learn-more').forEach(btn => {
     btn.addEventListener('click', (e) => {
         const serviceKey = e.currentTarget.getAttribute('data-service');
@@ -210,7 +205,7 @@ modalContact.addEventListener('click', () => {
     const service = modalTitle.textContent;
     const serviceSelect = document.getElementById('service');
     if (serviceSelect) {
-        // Most services will map to 'other', but we can keep it simple
+        // Most services will map to 'other', but you can expand mapping
         serviceSelect.value = 'other';
     }
     modal.style.display = 'none';
@@ -224,7 +219,6 @@ const chatMessages = document.getElementById('chat-messages');
 const chatInput = document.getElementById('chat-input');
 const chatSend = document.getElementById('chat-send');
 
-// Toggle chat window
 chatButton.addEventListener('click', () => {
     chatWindow.classList.add('active');
 });
@@ -232,12 +226,10 @@ chatClose.addEventListener('click', () => {
     chatWindow.classList.remove('active');
 });
 
-// Send message
 async function sendMessage() {
     const message = chatInput.value.trim();
     if (!message) return;
     
-    // Display user message
     const userMsgDiv = document.createElement('div');
     userMsgDiv.className = 'message user-message';
     userMsgDiv.textContent = message;
@@ -245,23 +237,20 @@ async function sendMessage() {
     chatInput.value = '';
     chatMessages.scrollTop = chatMessages.scrollHeight;
     
-    // Show typing indicator (optional)
     const typingDiv = document.createElement('div');
     typingDiv.className = 'message bot-message';
     typingDiv.textContent = '...';
     chatMessages.appendChild(typingDiv);
     
     try {
-        // Call backend API
-        const response = await fetch('/api/chat', { // Adjust URL if backend is elsewhere
+        const response = await fetch('/api/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message })
         });
         const data = await response.json();
-        typingDiv.remove(); // Remove typing indicator
+        typingDiv.remove();
         
-        // Display bot response
         const botMsgDiv = document.createElement('div');
         botMsgDiv.className = 'message bot-message';
         botMsgDiv.textContent = data.reply || 'Sorry, I could not process that.';
