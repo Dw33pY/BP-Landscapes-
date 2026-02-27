@@ -46,7 +46,7 @@
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
                 <li><a href="#locations" class="nav-link">Locations</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -146,7 +146,7 @@
         </div>
     </section>
 
-    <!-- Services Section – VERTICAL CAROUSEL with full service list -->
+    <!-- Services Section – HORIZONTAL CAROUSEL with full service list -->
     <section id="services" class="section services-section">
         <div class="container">
             <div class="section-header">
@@ -154,20 +154,20 @@
                 <p class="section-subtitle">Comprehensive landscape and garden solutions for residential and commercial properties</p>
             </div>
 
-            <!-- Vertical carousel controls (up/down) -->
-            <div class="carousel-controls vertical">
-                <button class="carousel-btn up-btn" aria-label="Previous service"><i class="fas fa-chevron-up"></i></button>
-                <button class="carousel-btn down-btn" aria-label="Next service"><i class="fas fa-chevron-down"></i></button>
+            <!-- Horizontal carousel controls -->
+            <div class="carousel-controls">
+                <button class="carousel-btn prev-btn" aria-label="Previous service"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-btn next-btn" aria-label="Next service"><i class="fas fa-chevron-right"></i></button>
             </div>
 
-            <!-- Services vertical carousel wrapper -->
-            <div class="services-carousel vertical" id="servicesCarousel">
-                <!-- Service cards (your full list) -->
+            <!-- Services carousel wrapper -->
+            <div class="services-carousel" id="servicesCarousel">
+                <!-- Service cards – generated from the list -->
                 <div class="service-card">
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/14189112/pexels-photo-14189112.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Landscape Gardener</h3>
-                            <p>Professional landscape gardening services for your outdoor space.</p>
+                            <p>Professional landscape gardening services.</p>
                             <button class="service-learn-more" data-service="landscape-gardener">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Artificial Turf Installation</h3>
-                            <p>High-quality synthetic grass for a low-maintenance lawn.</p>
+                            <p>High-quality synthetic grass.</p>
                             <button class="service-learn-more" data-service="artificial-turf">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -185,7 +185,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/1435895/pexels-photo-1435895.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Concrete Masonry</h3>
-                            <p>Expert concrete work for walls, steps, and landscape features.</p>
+                            <p>Expert concrete work.</p>
                             <button class="service-learn-more" data-service="concrete-masonry">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/2399750/pexels-photo-2399750.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Desert Landscaping</h3>
-                            <p>Beautiful, water-wise landscaping for arid climates.</p>
+                            <p>Water-wise landscaping.</p>
                             <button class="service-learn-more" data-service="desert-landscaping">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -203,7 +203,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/2611472/pexels-photo-2611472.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Driveway Landscaping</h3>
-                            <p>Enhance your driveway with creative landscaping and paving.</p>
+                            <p>Enhance your driveway.</p>
                             <button class="service-learn-more" data-service="driveway-landscaping">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -212,7 +212,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Driveway or Path Paving</h3>
-                            <p>Professional paving for driveways and garden paths.</p>
+                            <p>Professional paving.</p>
                             <button class="service-learn-more" data-service="paving">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -221,7 +221,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/2611018/pexels-photo-2611018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Garden Decorating</h3>
-                            <p>Add charm with garden ornaments, furniture, and decor.</p>
+                            <p>Add charm with decor.</p>
                             <button class="service-learn-more" data-service="garden-decorating">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -230,7 +230,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Garden Design</h3>
-                            <p>Custom garden designs tailored to your taste and space.</p>
+                            <p>Custom garden designs.</p>
                             <button class="service-learn-more" data-service="garden-design">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -239,7 +239,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/2507010/pexels-photo-2507010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Garden Drainage</h3>
-                            <p>Effective drainage solutions to prevent waterlogging.</p>
+                            <p>Effective drainage solutions.</p>
                             <button class="service-learn-more" data-service="garden-drainage">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -248,7 +248,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Gardening Services</h3>
-                            <p>Complete gardening care, from planting to pruning.</p>
+                            <p>Complete gardening care.</p>
                             <button class="service-learn-more" data-service="gardening-services">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -257,7 +257,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/2251247/pexels-photo-2251247.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Garden Landscaping</h3>
-                            <p>Full‑service landscaping to transform your garden.</p>
+                            <p>Full‑service landscaping.</p>
                             <button class="service-learn-more" data-service="garden-landscaping">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -266,7 +266,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/17539/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Garden Levelling</h3>
-                            <p>Professional levelling for uneven gardens.</p>
+                            <p>Professional levelling.</p>
                             <button class="service-learn-more" data-service="garden-levelling">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -275,7 +275,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280232/pexels-photo-280232.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Grading and Resloping</h3>
-                            <p>Land grading and resloping for proper drainage and aesthetics.</p>
+                            <p>Land grading for drainage.</p>
                             <button class="service-learn-more" data-service="grading">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -284,7 +284,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280221/pexels-photo-280221.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Grass Seeding</h3>
-                            <p>Quality grass seeding for a lush, green lawn.</p>
+                            <p>Quality grass seeding.</p>
                             <button class="service-learn-more" data-service="grass-seeding">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -293,7 +293,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/2611020/pexels-photo-2611020.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Green Landscaping</h3>
-                            <p>Eco‑friendly landscaping using sustainable practices.</p>
+                            <p>Eco‑friendly practices.</p>
                             <button class="service-learn-more" data-service="green-landscaping">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -302,7 +302,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Groundskeeping</h3>
-                            <p>Regular grounds maintenance for commercial and residential properties.</p>
+                            <p>Regular grounds maintenance.</p>
                             <button class="service-learn-more" data-service="groundskeeping">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -311,7 +311,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/3773578/pexels-photo-3773578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Hardscaping</h3>
-                            <p>Patios, walkways, retaining walls – durable and attractive.</p>
+                            <p>Patios, walkways, walls.</p>
                             <button class="service-learn-more" data-service="hardscaping">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -320,7 +320,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Hydroseeding</h3>
-                            <p>Efficient hydroseeding for rapid lawn establishment.</p>
+                            <p>Rapid lawn establishment.</p>
                             <button class="service-learn-more" data-service="hydroseeding">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -329,7 +329,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/2611018/pexels-photo-2611018.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Landscape Design</h3>
-                            <p>Custom landscape designs blending aesthetics with functionality.</p>
+                            <p>Custom landscape designs.</p>
                             <button class="service-learn-more" data-service="landscape-design">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -338,7 +338,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Landscape Installations</h3>
-                            <p>Professional installation of plants, trees, and hardscape elements.</p>
+                            <p>Professional installation.</p>
                             <button class="service-learn-more" data-service="landscape-installations">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -347,7 +347,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Landscape Management</h3>
-                            <p>Ongoing landscape management to keep your property pristine.</p>
+                            <p>Ongoing landscape care.</p>
                             <button class="service-learn-more" data-service="landscape-management">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -356,7 +356,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Landscaping Design</h3>
-                            <p>Innovative landscaping design tailored to your vision.</p>
+                            <p>Innovative landscaping.</p>
                             <button class="service-learn-more" data-service="landscaping-design">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -365,7 +365,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Landscaping Maintenance</h3>
-                            <p>Regular maintenance to keep your landscape looking its best.</p>
+                            <p>Regular maintenance.</p>
                             <button class="service-learn-more" data-service="landscaping-maintenance">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -374,7 +374,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Lawn Care</h3>
-                            <p>Comprehensive lawn care including mowing, fertilising, and weed control.</p>
+                            <p>Comprehensive lawn care.</p>
                             <button class="service-learn-more" data-service="lawn-care">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -383,7 +383,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Lawn Landscaping</h3>
-                            <p>Design and installation of beautiful lawns.</p>
+                            <p>Beautiful lawn installation.</p>
                             <button class="service-learn-more" data-service="lawn-landscaping">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -392,7 +392,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Outdoor Step Construction</h3>
-                            <p>Beautiful and safe outdoor steps built to last.</p>
+                            <p>Beautiful outdoor steps.</p>
                             <button class="service-learn-more" data-service="outdoor-steps">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -401,7 +401,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Outdoor Water Feature Design</h3>
-                            <p>Custom fountains, ponds, and waterfalls for your garden.</p>
+                            <p>Fountains, ponds, waterfalls.</p>
                             <button class="service-learn-more" data-service="water-features">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -410,7 +410,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Path Landscaping</h3>
-                            <p>Creative landscaping for garden paths and walkways.</p>
+                            <p>Creative path landscaping.</p>
                             <button class="service-learn-more" data-service="path-landscaping">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -419,7 +419,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Pool Landscaping</h3>
-                            <p>Complete landscaping around swimming pools.</p>
+                            <p>Complete pool surroundings.</p>
                             <button class="service-learn-more" data-service="pool-landscaping">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -428,7 +428,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Retaining Walls</h3>
-                            <p>Structural and decorative retaining walls.</p>
+                            <p>Structural and decorative.</p>
                             <button class="service-learn-more" data-service="retaining-walls">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -437,7 +437,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Rock Landscaping</h3>
-                            <p>Natural stone and rock features for your landscape.</p>
+                            <p>Natural stone features.</p>
                             <button class="service-learn-more" data-service="rock-landscaping">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -446,7 +446,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Sod Installation</h3>
-                            <p>Instant lawn with professional sod installation.</p>
+                            <p>Instant lawn installation.</p>
                             <button class="service-learn-more" data-service="sod-installation">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -455,7 +455,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Stone Landscaping</h3>
-                            <p>Elegant stonework for gardens and pathways.</p>
+                            <p>Elegant stonework.</p>
                             <button class="service-learn-more" data-service="stone-landscaping">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -464,7 +464,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Stonemasonry</h3>
-                            <p>Custom stone features and structures.</p>
+                            <p>Custom stone structures.</p>
                             <button class="service-learn-more" data-service="stonemasonry">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -473,7 +473,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Tree Landscaping</h3>
-                            <p>Tree planting, pruning, and care services.</p>
+                            <p>Tree planting and care.</p>
                             <button class="service-learn-more" data-service="tree-landscaping">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -482,7 +482,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Gutter Cleaning</h3>
-                            <p>Thorough gutter cleaning and maintenance.</p>
+                            <p>Thorough gutter cleaning.</p>
                             <button class="service-learn-more" data-service="gutter-cleaning">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -491,7 +491,7 @@
                     <div class="service-image" style="background-image: url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
                         <div class="service-overlay">
                             <h3>Roof Cleaning</h3>
-                            <p>Safe and effective roof cleaning services.</p>
+                            <p>Safe roof cleaning.</p>
                             <button class="service-learn-more" data-service="roof-cleaning">Learn More <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -547,8 +547,6 @@
             </div>
         </div>
     </section>
-
-    <!-- ========== NEW CONTENT (without duplicate services) ========== -->
 
     <!-- Our Mission -->
     <section class="section mission-section">
@@ -644,9 +642,7 @@
         <p>Let’s Build Your Dream Outdoor Space</p>
     </div>
 
-    <!-- ========== END NEW CONTENT ========== -->
-
-    <!-- Portfolio Section -->
+    <!-- Portfolio Teaser Section -->
     <section id="portfolio" class="section portfolio-section">
         <div class="container">
             <div class="section-header">
@@ -672,7 +668,7 @@
                 </div>
             </div>
             <div class="portfolio-cta">
-                <a href="#" class="btn-primary">View Our Portfolio</a>
+                <a href="portfolio.html" class="btn-primary">View Full Portfolio</a>
             </div>
         </div>
     </section>
@@ -895,7 +891,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
                         <li><a href="#locations">Locations</a></li>
                     </ul>
                 </div>
@@ -928,25 +924,25 @@
             </div>
         </div>
     </footer>
-    
-    <!-- AI Chatbot -->
-<div id="chat-button" class="chat-button">
-    <i class="fas fa-comment-dots"></i>
-</div>
 
-<div id="chat-window" class="chat-window">
-    <div class="chat-header">
-        <span>BP Landscapes Assistant</span>
-        <button id="chat-close"><i class="fas fa-times"></i></button>
+    <!-- AI Chatbot -->
+    <div id="chat-button" class="chat-button">
+        <i class="fas fa-comment-dots"></i>
     </div>
-    <div class="chat-messages" id="chat-messages">
-        <div class="message bot-message">Hello! How can I help you with your landscaping needs today?</div>
+
+    <div id="chat-window" class="chat-window">
+        <div class="chat-header">
+            <span>BP Landscapes Assistant</span>
+            <button id="chat-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot-message">Hello! How can I help you with your landscaping needs today?</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Type your message..." />
+            <button id="chat-send"><i class="fas fa-paper-plane"></i></button>
+        </div>
     </div>
-    <div class="chat-input-area">
-        <input type="text" id="chat-input" placeholder="Type your message..." />
-        <button id="chat-send"><i class="fas fa-paper-plane"></i></button>
-    </div>
-</div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="main.js"></script>
