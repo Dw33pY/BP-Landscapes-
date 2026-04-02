@@ -3,35 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BP Landscapes | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Portfolio | BP Landscapes – Landscaping Projects Across Kenya</title>
+    <meta name="description" content="View BP Landscapes' portfolio of completed landscaping, hardscaping, irrigation and garden projects across Kenya. Residential and commercial transformations in Nairobi, Mombasa & beyond.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bplandscapes.co.ke/portfolio.html">
+    <meta property="og:title" content="Portfolio | BP Landscapes Kenya">
+    <meta property="og:description" content="See our completed landscaping projects across Kenya — from residential gardens to commercial properties.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://bplandscapes.co.ke/portfolio.html">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* Override navbar for portfolio page – white background from start */
-        nav {
+        /* Portfolio page: nav always white (no hero video behind it) */
+        #navbar {
             background-color: white !important;
             box-shadow: var(--shadow) !important;
         }
-        nav .nav-link,
-        nav .logo-text,
-        nav .menu-toggle {
+        #navbar .nav-link,
+        #navbar .logo-text,
+        #navbar .menu-toggle {
             color: var(--dark) !important;
         }
-        nav .cta-nav {
+        #navbar .nav-link:hover,
+        #navbar .nav-link.active {
+            color: var(--primary) !important;
+        }
+        #navbar .cta-nav {
             background-color: var(--primary);
             color: white !important;
         }
-        nav .cta-nav:hover {
+        #navbar .cta-nav:hover {
             background-color: var(--primary-dark);
         }
-        /* Ensure mobile menu has white background */
-        .nav-links {
-            background-color: white;
+
+        /* ===== PORTFOLIO CARDS ===== */
+        .portfolio-page-header {
+            padding-top: 130px;
+            padding-bottom: 20px;
         }
-        /* Portfolio card styling */
+        .portfolio-page-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
         .portfolio-card {
             background: white;
             border-radius: var(--radius);
@@ -46,25 +66,32 @@
         }
         .portfolio-card img {
             width: 100%;
-            height: 300px;
+            height: 320px;
             object-fit: cover;
+            display: block;
         }
         .portfolio-card-content {
-            padding: 30px;
+            padding: 35px;
         }
         .portfolio-card h3 {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             color: var(--primary-dark);
             margin-bottom: 20px;
         }
+        .portfolio-card > .portfolio-card-content > p {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
         .portfolio-card ul {
             list-style: disc;
-            margin-left: 20px;
+            margin-left: 22px;
             margin-bottom: 20px;
             color: var(--gray);
         }
         .portfolio-card li {
             margin-bottom: 8px;
+            font-size: 0.98rem;
         }
         .portfolio-card .outcome {
             font-style: italic;
@@ -72,34 +99,65 @@
             border-left: 4px solid var(--primary);
             padding-left: 20px;
             margin-top: 20px;
+            line-height: 1.7;
+        }
+        .portfolio-back-btn {
+            text-align: center;
+            margin: 20px 0 60px;
         }
         @media (max-width: 768px) {
-            .portfolio-card img {
-                height: 200px;
-            }
+            .portfolio-card img { height: 220px; }
+            .portfolio-card-content { padding: 24px; }
+            .portfolio-card h3 { font-size: 1.4rem; }
         }
     </style>
 </head>
-<body>
+<body class="loading">
+
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <img src="loader.png" alt="BP Landscapes loading...">
+    </div>
+
+    <!-- Mobile nav overlay backdrop -->
+    <div id="navOverlay" class="nav-overlay"></div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/254708832478?text=Hello%20BP%20Landscapes!%20I%20need%20gardening%20services."
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat with BP Landscapes on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Scroll back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <!-- Navigation -->
-    <nav id="navbar">
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <div class="logo">
-                <img src="logo.png" alt="BP Landscapes" class="logo-img">
+            <a href="index.html" class="logo" aria-label="BP Landscapes Home">
+                <img src="logo.png" alt="BP Landscapes logo" class="logo-img">
                 <span class="logo-text">BP Landscapes</span>
-            </div>
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
                 <i class="fas fa-bars"></i>
             </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html#home" class="nav-link">Home</a></li>
-                <li><a href="index.html#about" class="nav-link">About</a></li>
-                <li><a href="index.html#services" class="nav-link">Services</a></li>
-                <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
-                <li><a href="index.html#locations" class="nav-link">Locations</a></li>
-                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="index.html#home" class="nav-link" role="menuitem">Home</a></li>
+                <li role="none"><a href="index.html#about" class="nav-link" role="menuitem">About</a></li>
+                <li role="none"><a href="index.html#services" class="nav-link" role="menuitem">Services</a></li>
+                <li role="none"><a href="portfolio.html" class="nav-link active" role="menuitem">Portfolio</a></li>
+                <li role="none"><a href="index.html#locations" class="nav-link" role="menuitem">Locations</a></li>
+                <li role="none"><a href="index.html#contact" class="nav-link" role="menuitem">Contact</a></li>
             </ul>
-            <a href="tel:+254708832478" class="cta-nav">
+
+            <a href="tel:+254708832478" class="cta-nav" aria-label="Call BP Landscapes now">
                 <i class="fas fa-phone-alt"></i>
                 <span>Call Now</span>
             </a>
@@ -107,43 +165,48 @@
     </nav>
 
     <!-- Page Header -->
-    <section class="section" style="padding-top: 120px;">
+    <section class="section portfolio-page-header" aria-labelledby="portfolio-page-title">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Our <span class="highlight">Portfolio</span></h2>
-                <p class="section-subtitle">Transforming Outdoor Spaces Across the Country</p>
+                <h1 class="section-title" id="portfolio-page-title">Our <span class="highlight">Portfolio</span></h1>
+                <p class="section-subtitle">Transforming Outdoor Spaces Across Kenya</p>
             </div>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px; color: var(--gray);">
-                At BP Landscapes, every project tells a story of transformation. Our portfolio showcases completed landscaping, hardscaping, irrigation and outdoor construction projects across the country. We design and build landscapes that are beautiful, functional and built to last – from residential homes to commercial properties.
+            <p class="portfolio-page-intro">
+                At BP Landscapes, every project tells a story of transformation. Our portfolio showcases completed landscaping, hardscaping, irrigation and outdoor construction projects across the country. We design and build landscapes that are beautiful, functional and built to last — from residential homes to commercial properties.
             </p>
         </div>
     </section>
 
     <!-- Portfolio Projects -->
-    <section class="section">
+    <section class="section" style="padding-top: 0;" aria-label="Portfolio projects">
         <div class="container">
+
             <!-- Project 1 -->
             <div class="portfolio-card">
-                <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Residential Garden Transformation">
+                <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                     alt="Residential garden transformation project by BP Landscapes in Nairobi"
+                     loading="lazy" width="1200" height="320">
                 <div class="portfolio-card-content">
                     <h3>Residential Garden Transformation – Nairobi</h3>
                     <p><strong>Scope of Work:</strong></p>
                     <ul>
-                        <li>Full landscape design & installation</li>
+                        <li>Full landscape design &amp; installation</li>
                         <li>Sod installation</li>
                         <li>Retaining wall construction</li>
                         <li>Driveway cabro paving</li>
                         <li>Rain Bird irrigation system</li>
                     </ul>
                     <div class="outcome">
-                        <strong>Outcome:</strong> We transformed a dusty, uneven compound into a lush, structured and low-maintenance outdoor space that increased the property’s value and visual appeal.
+                        <strong>Outcome:</strong> We transformed a dusty, uneven compound into a lush, structured and low-maintenance outdoor space that increased the property's value and visual appeal.
                     </div>
                 </div>
             </div>
 
             <!-- Project 2 -->
             <div class="portfolio-card">
-                <img src="https://images.pexels.com/photos/7656745/pexels-photo-7656745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Commercial Property Landscaping">
+                <img src="https://images.pexels.com/photos/7656745/pexels-photo-7656745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                     alt="Commercial property landscaping project by BP Landscapes in Nairobi"
+                     loading="lazy" width="1260" height="320">
                 <div class="portfolio-card-content">
                     <h3>Commercial Property Landscaping – Nairobi</h3>
                     <p><strong>Scope of Work:</strong></p>
@@ -151,25 +214,27 @@
                         <li>Professional landscape design</li>
                         <li>Artificial turf installation</li>
                         <li>Garden drainage system</li>
-                        <li>Tree planting & decorative stone landscaping</li>
+                        <li>Tree planting &amp; decorative stone landscaping</li>
                     </ul>
                     <div class="outcome">
-                        <strong>Outcome:</strong> Created a clean, professional, and welcoming environment that enhances the company’s brand image and improves outdoor usability.
+                        <strong>Outcome:</strong> Created a clean, professional, and welcoming environment that enhances the company's brand image and improves outdoor usability.
                     </div>
                 </div>
             </div>
 
             <!-- Project 3 -->
             <div class="portfolio-card">
-                <img src="https://images.pexels.com/photos/4207905/pexels-photo-4207905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Lawn & Irrigation Installation">
+                <img src="https://images.pexels.com/photos/4207905/pexels-photo-4207905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                     alt="Lawn and irrigation installation for a residential estate by BP Landscapes"
+                     loading="lazy" width="1260" height="320">
                 <div class="portfolio-card-content">
-                    <h3>Lawn & Irrigation Installation – Residential Estate</h3>
+                    <h3>Lawn &amp; Irrigation Installation – Residential Estate</h3>
                     <p><strong>Scope of Work:</strong></p>
                     <ul>
-                        <li>Soil preparation & leveling</li>
+                        <li>Soil preparation &amp; levelling</li>
                         <li>Premium sod installation</li>
                         <li>Smart irrigation system setup</li>
-                        <li>Fertilizer & pesticide application</li>
+                        <li>Fertilizer &amp; pesticide application</li>
                     </ul>
                     <div class="outcome">
                         <strong>Outcome:</strong> Delivered a healthy, green lawn with efficient water management for long-term sustainability.
@@ -179,40 +244,57 @@
 
             <!-- Project 4 -->
             <div class="portfolio-card">
-                <img src="https://images.pexels.com/photos/6509133/pexels-photo-6509133.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Hardscaping & Retaining Walls">
+                <img src="https://images.pexels.com/photos/6509133/pexels-photo-6509133.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                     alt="Hardscaping and retaining walls project by BP Landscapes Kenya"
+                     loading="lazy" width="1260" height="320">
                 <div class="portfolio-card-content">
-                    <h3>Hardscaping & Retaining Walls Project</h3>
+                    <h3>Hardscaping &amp; Retaining Walls Project</h3>
                     <p><strong>Scope of Work:</strong></p>
                     <ul>
                         <li>Stone retaining wall construction</li>
                         <li>Driveway paving</li>
                         <li>Outdoor steps installation</li>
-                        <li>Grading & resloping</li>
+                        <li>Grading &amp; resloping</li>
                     </ul>
                     <div class="outcome">
                         <strong>Outcome:</strong> Improved drainage, strengthened structure, and enhanced the property's aesthetic appeal.
                     </div>
                 </div>
             </div>
+
+            <!-- Back CTA -->
+            <div class="portfolio-back-btn">
+                <a href="index.html#contact" class="btn-primary">
+                    <i class="fas fa-calendar-check"></i> Request a Free Quote
+                </a>
+            </div>
+
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
                     <div class="footer-logo">
-                        <i class="fas fa-leaf"></i>
+                        <i class="fas fa-leaf" aria-hidden="true"></i>
                         <span>BP <span class="logo-highlight">Landscapes</span></span>
                     </div>
                     <p>Creating beautiful, sustainable outdoor spaces across Kenya. Quality landscaping services with over a decade of experience.</p>
                     <div class="footer-social">
-                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/254708832478" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/254708832478" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
                     </div>
                 </div>
+
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
@@ -221,56 +303,41 @@
                         <li><a href="index.html#services">Services</a></li>
                         <li><a href="portfolio.html">Portfolio</a></li>
                         <li><a href="index.html#locations">Locations</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-column">
                     <h3>Our Services</h3>
                     <ul class="footer-links">
                         <li><a href="index.html#services">Landscape Design</a></li>
-                        <li><a href="index.html#services">Pools & Water Features</a></li>
+                        <li><a href="index.html#services">Pools &amp; Water Features</a></li>
                         <li><a href="index.html#services">Outdoor Kitchens</a></li>
                         <li><a href="index.html#services">Hardscaping</a></li>
                         <li><a href="index.html#services">Garden Maintenance</a></li>
+                        <li><a href="index.html#services">Irrigation Systems</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-column">
                     <h3>Contact Info</h3>
                     <ul class="footer-contact">
-                        <li><i class="fas fa-phone-alt"></i> <a href="tel:+254708832478">+254 708 832478</a></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:bplandsscapes@gmail.com">bplandsscapes@gmail.com</a></li>
-                        <li><i class="fas fa-map-marker-alt"></i> Serving all major cities in Kenya</li>
-                        <li><i class="fas fa-clock"></i> Mon-Sat: 8AM-6PM, Sun: 10AM-4PM</li>
+                        <li><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+254708832478">+254 708 832 478</a></li>
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:info@bplandscapes.co.ke">info@bplandscapes.co.ke</a></li>
+                        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Serving all major cities in Kenya</li>
+                        <li><i class="fas fa-clock" aria-hidden="true"></i> Mon–Sat: 8AM–6PM, Sun: 10AM–4PM</li>
                     </ul>
                 </div>
             </div>
+
             <div class="footer-bottom">
                 <p>&copy; <span id="currentYear"></span> BP Landscapes Kenya. All rights reserved.</p>
                 <p>Professional landscaping and garden services across Kenya.</p>
+                <p>Made by <a href="https://dw33py.netlify.app" target="_blank" rel="noopener noreferrer">Dw33pY</a></p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Set current year
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.innerHTML = navLinks.classList.contains('active') ?
-                '<i class="fas fa-times"></i>' :
-                '<i class="fas fa-bars"></i>';
-        });
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-
-        // No scroll-based navbar changes needed because we set it white permanently
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
